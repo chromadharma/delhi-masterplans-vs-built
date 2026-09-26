@@ -42,7 +42,7 @@ vectors/     mpd2041_vectors.gpkg        planning zones, rail, transit, Yamuna o
 ghsl/        GHS-BUILT-S R2023A clips, 100 m, 1975–2030 (2025/2030 are projections)
 results/     areas, limits, cross-tabs, accuracy, fitted transforms (JSON)
 scripts/     the pipeline, in run order (below)
-web_artifact/  the published page and its map layers
+docs/         the published page and its map layers (served by GitHub Pages)
 ```
 
 Common class codes: `0` uncoloured (rural, transport, hatched uses) · `1` residential · `2` commercial & industrial · `3` public, semi-public & government · `4` parks & recreation · `5` green belt & agriculture · `6` water & floodplain · `255` outside sheet or outside Delhi.
