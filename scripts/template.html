@@ -1,0 +1,289 @@
+<title>Three Plans for Delhi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&display=swap">
+<style>
+:root{
+  --ground:#E9EDEB; --panel:#F7F9F8; --ink:#15201F; --muted:#56635F; --rule:#C3CCC8;
+  --accent:#3B528B; --in:#21918C; --out:#440154; --proj:#8A9491; --focus:#3B528B;
+  --map-ground:#DCE2DF;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0E1413; --panel:#162020; --ink:#E2E9E6; --muted:#9BAAA6; --rule:#2B3735;
+    --accent:#8FA8E0; --in:#35B779; --out:#FDE725; --proj:#6E7A77; --focus:#FDE725; --map-ground:#1C2625;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0E1413; --panel:#162020; --ink:#E2E9E6; --muted:#9BAAA6; --rule:#2B3735;
+  --accent:#8FA8E0; --in:#35B779; --out:#FDE725; --proj:#6E7A77; --focus:#FDE725; --map-ground:#1C2625;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.55;font-variation-settings:"wdth" 100}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:clamp(16px,4vw,40px);padding-block:32px 64px}
+header.mast{display:grid;gap:10px;padding-bottom:28px;border-bottom:1px solid var(--rule);margin-bottom:28px}
+.kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-variation-settings:"wdth" 88}
+h1{font-size:clamp(38px,6.4vw,76px);line-height:.95;margin:0;font-weight:760;font-variation-settings:"wdth" 72;letter-spacing:-.01em;text-wrap:balance}
+.lede{font-size:clamp(17px,2vw,20px);max-width:62ch;margin:6px 0 0;color:var(--ink)}
+.byline{font-size:14px;color:var(--muted)}
+.byline b{color:var(--ink);font-weight:600}
+.layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(20px,3vw,44px);align-items:start}
+@media (max-width:900px){.layout{grid-template-columns:1fr}}
+.mapcol{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px)}
+@media (max-width:900px){.mapcol{position:static}}
+.controls{display:grid;gap:10px;margin-bottom:12px}
+.row{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+.seg{display:inline-flex;border:1px solid var(--rule);border-radius:3px;overflow:hidden;background:var(--panel)}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{padding:6px 12px;font-size:14px;cursor:pointer;font-variant-numeric:tabular-nums;font-variation-settings:"wdth" 90;user-select:none}
+.seg label+input+label{border-left:1px solid var(--rule)}
+.seg input:checked+label{background:var(--ink);color:var(--ground)}
+.seg input:focus-visible+label{outline:2px solid var(--focus);outline-offset:-2px}
+.tog{display:inline-flex;gap:6px;align-items:center;font-size:14px;cursor:pointer}
+.tog input{accent-color:var(--accent);width:16px;height:16px}
+.tog.off{opacity:.45;cursor:default}
+.epoch{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center}
+.epoch input[type=range]{width:100%;accent-color:var(--accent)}
+.yr{font-size:26px;font-weight:700;font-variant-numeric:tabular-nums;font-variation-settings:"wdth" 75;min-width:4.2ch;line-height:1}
+.yr small{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;font-variation-settings:"wdth" 90;min-height:1.2em}
+button.small{font:inherit;font-size:13px;padding:5px 10px;border:1px solid var(--rule);background:var(--panel);color:var(--ink);border-radius:3px;cursor:pointer}
+button.small:focus-visible{outline:2px solid var(--focus)}
+.mapbox{background:var(--map-ground);border:1px solid var(--rule);overflow:auto;max-height:78vh}
+.stage{position:relative;width:100%;aspect-ratio:1000/1055}
+.stage.zoom{width:200%}
+.stage img,.stage svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.stage img{image-rendering:auto}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--muted);margin-top:10px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:12px;height:12px;display:inline-block;border:1px solid rgba(0,0,0,.15)}
+.cap{font-size:13px;color:var(--muted);margin-top:8px;max-width:70ch}
+article{display:grid;gap:44px}
+section h2{font-size:clamp(24px,3vw,32px);line-height:1.08;margin:0 0 10px;font-weight:720;font-variation-settings:"wdth" 78;text-wrap:balance}
+section p{margin:0 0 12px;max-width:64ch}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;font-variation-settings:"wdth" 88}
+.figs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0}
+.fig{border-top:2px solid var(--ink);padding-top:8px}
+.fig b{display:block;font-size:40px;line-height:1;font-weight:760;font-variation-settings:"wdth" 70;font-variant-numeric:tabular-nums}
+.fig span{font-size:13px;color:var(--muted)}
+.chart{width:100%;height:auto;display:block;margin-top:6px}
+.chart text{fill:var(--muted);font-size:11px;font-family:inherit}
+.chart .lab{fill:var(--ink);font-size:12px}
+table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{text-align:right;padding:6px 8px;border-bottom:1px solid var(--rule)}
+th:first-child,td:first-child{text-align:left}
+th{font-weight:600;font-size:12px;color:var(--muted);letter-spacing:.04em}
+.tablebox{overflow-x:auto}
+ul.fix{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+ul.fix li{padding-left:14px;border-left:2px solid var(--rule);max-width:66ch}
+ul.fix li b{font-weight:640}
+.method{font-size:14px;color:var(--muted)}
+.method p{max-width:72ch}
+.method b{color:var(--ink);font-weight:600}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--rule);font-size:13px;color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){.stage img{transition:opacity .25s ease}}
+</style>
+
+<div class="wrap">
+<header class="mast">
+  <div class="kicker">Delhi Master Plans · 1962 · 2001 · 2041 draft</div>
+  <h1>Three Plans for Delhi</h1>
+  <p class="lede">Three official land-use plans for Delhi, aligned on one map and laid over satellite-derived building footprint every five years from 1975 to 2020, with projections to 2030. The question is simple: did the city grow where it was drawn?</p>
+  <div class="byline">Prepared by <b>Sahasrik Ragani</b> · September 2026</div>
+</header>
+
+<div class="layout">
+  <div class="mapcol">
+    <div class="controls">
+      <div class="row">
+        <div class="seg" role="radiogroup" aria-label="Plan">
+          <input type="radio" name="plan" id="p1962" value="1962"><label for="p1962">MPD 1962</label>
+          <input type="radio" name="plan" id="p2001" value="2001"><label for="p2001">MPD 2001</label>
+          <input type="radio" name="plan" id="p2041" value="2041" checked><label for="p2041">Draft 2041</label>
+        </div>
+        <div class="seg" role="radiogroup" aria-label="Base layer">
+          <input type="radio" name="base" id="bsheet" value="sheet" checked><label for="bsheet">Original sheet</label>
+          <input type="radio" name="base" id="bclass" value="classes"><label for="bclass">Common classes</label>
+        </div>
+      </div>
+      <div class="epoch">
+        <div class="yr" id="yr">2020<small id="yrnote">observed</small></div>
+        <input type="range" id="epoch" min="0" max="11" step="1" value="9" aria-label="Built-up epoch">
+        <button class="small" id="zoom" type="button" aria-pressed="false">Zoom 2×</button>
+      </div>
+      <div class="row">
+        <label class="tog"><input type="checkbox" id="showBuilt" checked> Building footprint (GHSL)</label>
+        <label class="tog" id="limWrap"><input type="checkbox" id="showLimit"> Plan's urban limit</label>
+        <label class="tog" id="unWrap"><input type="checkbox" id="showUnauth"> Unauthorized colonies</label>
+      </div>
+    </div>
+    <div class="mapbox" id="mapbox">
+      <div class="stage" id="stage">
+        <img id="imgBase" alt="Plan sheet aligned to Delhi" src="sheet_2041.webp">
+        <img id="imgUn" alt="" src="unauth_2041.png" hidden>
+        <img id="imgBuilt" alt="Building footprint" src="built_2020.png">
+        <svg id="ov" viewBox="0 0 1000 1055" aria-hidden="true"></svg>
+      </div>
+    </div>
+    <div class="legend" id="legend"></div>
+    <p class="cap" id="mapcap"></p>
+  </div>
+
+  <article>
+    <section>
+      <div class="eyebrow">Finding 1</div>
+      <h2>About half of new building went up beyond the plan's line</h2>
+      <p>For the two older plans, I drew each plan's urban limit: everything it zoned for housing, work, institutions, parks, the airport or cantonment. Then I measured new building footprint, only counting land at least 400&nbsp;m outside that line so alignment error cannot manufacture the result.</p>
+      <div class="figs">
+        <div class="fig"><b id="f62">57%</b><span>of footprint added 1975–2020 lay outside the 1962 plan's urban limit</span></div>
+        <div class="fig"><b id="f01">49%</b><span>of footprint added 1975–2000 lay outside the 2001 plan's limit, during that plan's own run-up</span></div>
+      </div>
+      <div class="row" style="margin-top:8px">
+        <div class="seg" role="radiogroup" aria-label="Plan for chart">
+          <input type="radio" name="cplan" id="c1962" value="1962" checked><label for="c1962">1962 limit</label>
+          <input type="radio" name="cplan" id="c2001" value="2001"><label for="c2001">2001 limit</label>
+        </div>
+      </div>
+      <svg class="chart" id="chart1" viewBox="0 0 560 270" role="img" aria-label="Footprint added per five-year period, inside versus outside the urban limit"></svg>
+      <div class="legend"><span><i style="background:var(--in)"></i>Inside limit</span><span><i style="background:var(--out)"></i>≥400 m outside</span><span><i style="background:var(--proj)"></i>2020–30 projected</span></div>
+      <p class="cap">km² of new building footprint (roof area) added per five-year period. The 400&nbsp;m ring just outside the line is left out of both counts.</p>
+    </section>
+
+    <section>
+      <div class="eyebrow">Finding 2</div>
+      <h2>Each plan zoned more of the city, and the 2041 draft still keeps a green belt</h2>
+      <p>With colours made comparable, planned housing, work, institutional and park land goes from about 392&nbsp;km² on the 1962 sheet to 441&nbsp;km² in 2001 and 605&nbsp;km² in the 2041 draft. The 2041 draft also leaves about 390&nbsp;km² in six land-pooling zones to be planned later. The rural edge is not erased: 210&nbsp;km², 14% of Delhi, is still green belt.</p>
+      <svg class="chart" id="chart2" viewBox="0 0 560 190" role="img" aria-label="Planned area by class for each plan"></svg>
+      <div class="legend" id="leg2"></div>
+      <p class="cap">km² within each sheet's coverage of Delhi: 1962 ≈ 1,010, 2001 ≈ 952, 2041 = 1,482. The two older sheets leave out the far north and west. The 2001 sheet draws the green belt as uncoloured hatching, so it appears here as zero.</p>
+    </section>
+
+    <section>
+      <div class="eyebrow">Finding 3</div>
+      <h2>Part of the 2041 draft's green land is already built on</h2>
+      <p>The 2041 draft is drawn as vectors, so its green belt, Ridge and parks are exact. Taking only the interior of each class (100&nbsp;m in from its edge), I counted land whose 100&nbsp;m satellite cell is at least one-fifth covered by buildings.</p>
+      <div class="tablebox"><table id="t3"></table></div>
+      <p class="cap">The draft itself maps 106.6&nbsp;km² of unauthorized colonies. 10.7&nbsp;km² of that sits on land it zones green belt and 3.8&nbsp;km² on the Ridge regional park.</p>
+    </section>
+
+    <section>
+      <div class="eyebrow">Corrections</div>
+      <h2>What the first-pass reading got wrong</h2>
+      <ul class="fix">
+        <li><b>The "georeferenced" TIFFs weren't georeferenced.</b> Each whole sheet, legend and margins included, was stretched into Delhi's bounding box. Here every sheet is fitted to real control points instead.</li>
+        <li><b>The 1962 plan does not cover all of Delhi.</b> It is titled <i>Delhi Urban Area</i> and covers about two-thirds of today's territory.</li>
+        <li><b>A colour means different things on different sheets.</b> On the 1962 sheet, housing runs from yellow to brown by density and heavy industry is dark maroon. Counting "yellow pixels" across years compares different things.</li>
+        <li><b>A plan shows proposals, not what happened.</b> "Encroachment is visible" or "extreme congestion" can't be read off a land-use plan. That's why the building-footprint layer is here.</li>
+        <li><b>1962 did map the floodplain.</b> Its legend has an explicit "Floodable Land" class.</li>
+        <li><b>The 2041 draft has six land-pooling zones:</b> N, P-I, P-II, K-I, L and J. The earlier list missed P-I.</li>
+      </ul>
+    </section>
+
+    <section class="method">
+      <div class="eyebrow">Method and limits</div>
+      <p><b>Alignment.</b> The 2041 draft PDF holds 4,347 vector land-use polygons. Its silhouette was fitted to the OpenStreetMap boundary of Delhi: typical error 66&nbsp;m, fitted scale within 0.03% of the sheet's scale bar. The 2001 scan was fitted to its drawn territory boundary plus three landmarks: boundary error around 50&nbsp;m, landmarks 130–300&nbsp;m, scale matching the scale bar. The 1962 scan uses ten control points (monuments, boundary corners, a rail line), with residuals of 40–370&nbsp;m and a held-out check at the Qutub of 445&nbsp;m. The 1962 base map was surveyed and hand-drawn before satellite imagery, so its placement can be a few hundred metres off. That is fine at city scale but not for claims about individual plots.</p>
+      <p><b>Classes.</b> The scans were colour-enhanced (median filter, saturation and local-contrast boost), clustered, and mapped by hand to seven common classes. Line work was filled from neighbouring pixels. Against visual labels on stratified random points, 1962 scored 81% (42 points) and 2001 scored 86% (36 points). Residential and commercial/industrial were correct in every sample; most misses were parks vs public land and water. 2041 classes come straight from the vectors. Commercial and industrial are merged because the 1962 maroons can't be told apart reliably.</p>
+      <p><b>Building footprint.</b> From the EU's Global Human Settlement Layer, GHS-BUILT-S R2023A: building surface at 100&nbsp;m for 1975–2020, with 2025 and 2030 as model projections. Surface means roof area, not urban land, so 290&nbsp;km² of footprint in 2020 corresponds to a much larger built-up city.</p>
+      <p><b>Urban limits.</b> A 400&nbsp;m morphological closing of all planned non-rural uses, with holes filled. The airport, cantonment and other hatched tracts were outlined by hand, because hatching can't be classified by colour.</p>
+    </section>
+  </article>
+</div>
+<footer>Sources: Delhi Development Authority, Master Plan for Delhi land-use plans (1962, reprinted 1976; 2001, reprinted 1996; Draft 2041). European Commission JRC, GHS-BUILT-S R2023A. Boundary © OpenStreetMap contributors. Analysis and maps: Sahasrik Ragani.</footer>
+</div>
+
+<script>
+const D=__DATA__;
+const EP=D.epochs, PROJ=i=>EP[i]>2020;
+const CLS=[["Residential","#F2C424"],["Commercial & industrial","#CC3442"],["Public & government","#2E70BE"],["Parks & recreation","#4AA056"],["Green belt & agriculture","#B0CC7E"],["Water & floodplain","#76BCE2"],["Uncoloured","#DEDBD0"]];
+const $=id=>document.getElementById(id);
+const st={plan:"2041",base:"sheet",epoch:9};
+const imgs=[];["1962","2001","2041"].forEach(p=>{["sheet_"+p+".webp","classes_"+p+".png"].forEach(s=>{const i=new Image();i.src=s;imgs.push(i)})});
+EP.forEach(y=>{const i=new Image();i.src="built_"+y+".png";imgs.push(i)});
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e}
+function drawOverlay(){
+  const ov=$("ov");ov.innerHTML="";
+  const css=getComputedStyle(document.documentElement);
+  el("path",{d:"M"+D.frame.nct.map(p=>p.join(",")).join("L")+"Z",fill:"none",stroke:css.getPropertyValue("--ink").trim(),"stroke-width":1.6,"stroke-dasharray":"6 4"},ov);
+  if($("showLimit").checked&&st.plan!=="2041"){
+    D.outline[st.plan].forEach(c=>el("path",{d:"M"+c.map(p=>p.join(",")).join("L")+"Z",fill:"none",stroke:"#E0007A","stroke-width":3},ov));
+  }
+  const k=D.frame.km_px*5, x=40, y=1020;
+  el("rect",{x:x-8,y:y-22,width:k+60,height:34,fill:css.getPropertyValue("--panel").trim(),opacity:.85},ov);
+  el("line",{x1:x,y1:y,x2:x+k,y2:y,stroke:css.getPropertyValue("--ink").trim(),"stroke-width":3},ov);
+  const t=el("text",{x:x+k+8,y:y+5,fill:css.getPropertyValue("--ink").trim(),"font-size":16,"font-family":"Archivo, sans-serif"},ov);t.textContent="5 km";
+}
+function render(){
+  $("imgBase").src=(st.base==="sheet"?"sheet_":"classes_")+st.plan+(st.base==="sheet"?".webp":".png");
+  $("imgBuilt").src="built_"+EP[st.epoch]+".png";
+  $("imgBuilt").hidden=!$("showBuilt").checked;
+  $("yr").firstChild.nodeValue=EP[st.epoch];
+  $("yrnote").textContent=PROJ(st.epoch)?"projected":"observed";
+  const is41=st.plan==="2041";
+  $("limWrap").classList.toggle("off",is41);$("showLimit").disabled=is41;
+  $("unWrap").classList.toggle("off",!is41);$("showUnauth").disabled=!is41;
+  $("imgUn").hidden=!(is41&&$("showUnauth").checked);
+  drawOverlay();
+  const lg=$("legend");lg.innerHTML="";
+  if(st.base==="classes")CLS.forEach(([n,c])=>{lg.insertAdjacentHTML("beforeend",`<span><i style="background:${c}"></i>${n}</span>`)});
+  else lg.insertAdjacentHTML("beforeend",`<span>Original colours; see each sheet's own legend</span>`);
+  if($("showBuilt").checked)lg.insertAdjacentHTML("beforeend",`<span><i style="background:#1A0A2E"></i>Building footprint, darker = denser</span>`);
+  if(is41&&$("showUnauth").checked)lg.insertAdjacentHTML("beforeend",`<span><i style="background:#E60096"></i>Unauthorized colonies (as mapped in 2041 draft)</span>`);
+  if(!is41&&$("showLimit").checked)lg.insertAdjacentHTML("beforeend",`<span><i style="background:#E0007A"></i>Urban limit used in Finding 1</span>`);
+  const caps={"1962":"MPD 1962 (1976 reprint), fitted from 10 control points. The sheet covers the urban area only; the dashed line is today's Delhi boundary.","2001":"MPD 2001 (1996 reprint), fitted to its drawn territory boundary and three landmarks.","2041":"Draft MPD 2041, fitted from its vector outline to Delhi's boundary."};
+  $("mapcap").textContent=caps[st.plan]+" Building footprint for "+EP[st.epoch]+(PROJ(st.epoch)?" is a GHSL projection.":" is observed (GHSL).");
+}
+document.querySelectorAll('input[name=plan]').forEach(r=>r.addEventListener("change",e=>{st.plan=e.target.value;render()}));
+document.querySelectorAll('input[name=base]').forEach(r=>r.addEventListener("change",e=>{st.base=e.target.value;render()}));
+$("epoch").addEventListener("input",e=>{st.epoch=+e.target.value;render()});
+["showBuilt","showLimit","showUnauth"].forEach(id=>$(id).addEventListener("change",render));
+$("zoom").addEventListener("click",()=>{const z=$("stage").classList.toggle("zoom");$("zoom").setAttribute("aria-pressed",z);$("zoom").textContent=z?"Fit":"Zoom 2×";if(z){const b=$("mapbox");b.scrollLeft=b.scrollWidth/4;b.scrollTop=b.scrollHeight/4}});
+
+function tok(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim()}
+function chart1(p){
+  const s=$("chart1");s.innerHTML="";
+  const L=D.limit[p],W=560,H=270,m={l:38,r:8,t:14,b:34};
+  const n=EP.length-1,ins=[],out=[];
+  for(let i=0;i<n;i++){ins.push(L.in[i+1]-L.in[i]);out.push(L.out[i+1]-L.out[i])}
+  const mx=Math.ceil(Math.max(...ins.map((v,i)=>v+out[i]))/2)*2;
+  const y=v=>m.t+(H-m.t-m.b)*(1-v/mx), bw=(W-m.l-m.r)/n;
+  for(let g=0;g<=mx;g+=2){el("line",{x1:m.l,x2:W-m.r,y1:y(g),y2:y(g),stroke:tok("--rule"),"stroke-width":g?0.6:1},s);const t=el("text",{x:m.l-6,y:y(g)+4,"text-anchor":"end"},s);t.textContent=g}
+  for(let i=0;i<n;i++){
+    const x=m.l+i*bw+bw*.18,w=bw*.64,pj=EP[i+1]>2020;
+    el("rect",{x,y:y(ins[i]),width:w,height:y(0)-y(ins[i]),fill:pj?tok("--proj"):tok("--in"),opacity:pj?.55:1},s);
+    el("rect",{x,y:y(ins[i]+out[i]),width:w,height:y(ins[i])-y(ins[i]+out[i]),fill:pj?tok("--proj"):tok("--out"),opacity:pj?.9:1},s);
+    const t=el("text",{x:x+w/2,y:H-m.b+14,"text-anchor":"middle"},s);t.textContent="'"+String(EP[i]).slice(2)+"–"+String(EP[i+1]).slice(2);
+  }
+  const t=el("text",{x:m.l,y:H-4},s);t.textContent="km² added per period";
+}
+function chart2(){
+  const s=$("chart2");s.innerHTML="";const W=560,H=190,l=78,r=8,rh=38;
+  const mx=1482.4;
+  ["1962","2001","2041"].forEach((p,j)=>{
+    const vals=D.alloc[p];let x=l;const yy=12+j*(rh+14);
+    const lab=el("text",{x:0,y:yy+rh/2+4,class:"lab"},s);lab.textContent=p==="2041"?"2041 draft":"MPD "+p;
+    vals.forEach((v,k)=>{const w=(W-l-r)*v/mx;el("rect",{x,y:yy,width:Math.max(w,0),height:rh,fill:CLS[k][1]},s);
+      if(w>34&&k<6){const t=el("text",{x:x+4,y:yy+rh/2+4,fill:k===2||k===3?"#fff":"#15201F","font-size":11},s);t.textContent=Math.round(v)}
+      x+=w});
+  });
+  const t=el("text",{x:l,y:H-2},s);t.textContent="Bar length = km²; full width = all of Delhi (1,482 km²)";
+  const lg=$("leg2");lg.innerHTML="";CLS.forEach(([n,c])=>lg.insertAdjacentHTML("beforeend",`<span><i style="background:${c}"></i>${n}</span>`));
+}
+function table3(){
+  const i75=EP.indexOf(1975),i00=EP.indexOf(2000),i20=EP.indexOf(2020),i30=EP.indexOf(2030);
+  let h="<thead><tr><th>2041 draft class</th><th>Zoned km²</th><th>Interior km²</th><th>Built 1975</th><th>2000</th><th>2020</th><th>2030 proj.</th><th>Share 2020</th></tr></thead><tbody>";
+  const rows=[["Green belt","Green belt"],["Regional park (Ridge)","Regional park (Ridge)"],["City parks & green buffers","City parks & green buffers"]];
+  rows.forEach(([k,n])=>{const g=D.green[k];h+=`<tr><td>${n}</td><td>${g.area.toFixed(1)}</td><td>${g.core.toFixed(1)}</td><td>${g.urb[i75].toFixed(1)}</td><td>${g.urb[i00].toFixed(1)}</td><td><b>${g.urb[i20].toFixed(1)}</b></td><td>${g.urb[i30].toFixed(1)}</td><td>${Math.round(100*g.urb[i20]/g.core)}%</td></tr>`});
+  $("t3").innerHTML=h+"</tbody>";
+}
+function figs(){
+  const a=D.limit["1962"],b=D.limit["2001"],i75=0,i00=EP.indexOf(2000),i20=EP.indexOf(2020);
+  const s62=(a.out[i20]-a.out[i75])/((a.out[i20]-a.out[i75])+(a.in[i20]-a.in[i75]));
+  const s01=(b.out[i00]-b.out[i75])/((b.out[i00]-b.out[i75])+(b.in[i00]-b.in[i75]));
+  $("f62").textContent=Math.round(100*s62)+"%";$("f01").textContent=Math.round(100*s01)+"%";
+}
+let cp="1962";
+document.querySelectorAll('input[name=cplan]').forEach(r=>r.addEventListener("change",e=>{cp=e.target.value;chart1(cp)}));
+function all(){render();chart1(cp);chart2()}
+figs();table3();all();
+try{matchMedia("(prefers-color-scheme: dark)").addEventListener("change",all)}catch(e){}
+new MutationObserver(all).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
+</script>

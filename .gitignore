@@ -1,0 +1,7 @@
+# Scanned DDA sheets and their aligned copies: large, and the sheets are DDA publications.
+# Rebuild them with scripts/warp.py from the original PDFs.
+rasters/*scan_georef_native.tif
+rasters/*scan_utm43_10m.tif
+rasters/mpd2041_sheet_utm43_10m.tif
+*.aux.xml
+__pycache__/

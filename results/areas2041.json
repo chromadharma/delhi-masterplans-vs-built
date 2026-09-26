@@ -1,0 +1,30 @@
+{
+ "areas_km2": {
+  "Uncoloured: land pooling, transport, villages, roads": 635.2,
+  "Residential": 303.7,
+  "Commercial": 25.5,
+  "Industrial": 35.0,
+  "City parks & green buffers": 98.5,
+  "Regional park (Ridge)": 83.9,
+  "Public & semi-public": 53.9,
+  "Government": 4.5,
+  "Green belt": 210.0,
+  "Water, drains & floodplain": 31.8,
+  "Facility corridor": 0.5
+ },
+ "nct_km2": 1482.4209068555815,
+ "unauth_km2": 106.58217163288843,
+ "unauth_by_class": {
+  "Residential": 31.6,
+  "Commercial": 1.1,
+  "Industrial": 1.1,
+  "City parks & green buffers": 3.8,
+  "Regional park (Ridge)": 3.8,
+  "Public & semi-public": 2.1,
+  "Government": 0.0,
+  "Green belt": 10.7,
+  "Water, drains & floodplain": 0.1,
+  "Facility corridor": 0.0,
+  "Uncoloured: land pooling, transport, villages, roads": 52.2
+ }
+}

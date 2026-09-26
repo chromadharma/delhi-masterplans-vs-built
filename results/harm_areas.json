@@ -1,0 +1,32 @@
+{
+ "1962": {
+  "coverage_km2": 1010.5,
+  "Uncoloured (rural, transport, hatched uses)": 512.7,
+  "Residential": 231.9,
+  "Commercial & industrial": 36.6,
+  "Public, semi-public & government": 19.2,
+  "Parks & recreation": 104.1,
+  "Green belt & agriculture": 93.6,
+  "Water & floodplain": 12.4
+ },
+ "2001": {
+  "coverage_km2": 952.0,
+  "Uncoloured (rural, transport, hatched uses)": 501.9,
+  "Residential": 208.3,
+  "Commercial & industrial": 43.2,
+  "Public, semi-public & government": 47.9,
+  "Parks & recreation": 141.1,
+  "Green belt & agriculture": 0.0,
+  "Water & floodplain": 9.5
+ },
+ "2041": {
+  "coverage_km2": 1482.4,
+  "Uncoloured (rural, transport, hatched uses)": 635.2,
+  "Residential": 303.8,
+  "Commercial & industrial": 60.5,
+  "Public, semi-public & government": 58.8,
+  "Parks & recreation": 182.3,
+  "Green belt & agriculture": 210.0,
+  "Water & floodplain": 31.7
+ }
+}
